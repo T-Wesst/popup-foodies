@@ -1,10 +1,11 @@
 import React,{ useState } from 'react'
+import { Link } from "react-router-dom";
 import * as FaIcons from 'react-icons/fa';
 import * as AiIcons from 'react-icons/ai';
-import "./Sidenav.css"
 import { IconContext } from 'react-icons';
-
 import { SidenavItems } from './SidenavItems';
+import "./Sidenav.css"
+
 
 export default function Sidenav({user, logo}) {
     const [sidebar, setSidebar] = useState(false);
@@ -13,26 +14,26 @@ export default function Sidenav({user, logo}) {
         <>
         <IconContext.Provider value={{color:'#fff'}}>
         <div className="navbar">
-            <a className="menuBars">
+            <Link to='#' className="menuBars">
                 <FaIcons.FaBars onClick={showSidebar}/>
-            </a>
+            </Link>
             <a>{logo}</a>
             <h1 className='name'>Hi {user}!</h1>
         </div>
         <nav className={sidebar ? 'navMenu active' : 'navMenu'}>
             <ul className="navMenuItems" onClick={showSidebar}>
                 <li className="navbarToggle">
-                    <a className="menuBars">
+                    <Link to='#' className="menuBars">
                         <AiIcons.AiOutlineClose/>
-                    </a>
+                    </Link>
                 </li>
                 {SidenavItems.map((item, index) => {
                     return (
                     <li key={index} className={item.cName}>
-                        <a href={item.path}>
+                        <Link to={item.path}>
                             {item.icon}
                             <span>{item.title}</span>
-                        </a>
+                        </Link>
                     </li>
                     )
                 })}

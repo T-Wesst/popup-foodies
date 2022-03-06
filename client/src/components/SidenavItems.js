@@ -11,8 +11,8 @@ export const SidenavItems = [
         cName: 'navText'
     },
     {
-        title:'Home',
-        path: '/',
+        title:'Landing',
+        path: '/landing',
         icon: <AiIcons.AiFillHome/>,
         cName: 'navText'
     },
