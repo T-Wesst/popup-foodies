@@ -23,15 +23,15 @@ export const SidenavItems = [
         cName: 'navText'
     },
     {
-        title:'Log Out',
-        path: '/logout',
-        icon: <IoIcons.IoLogOutOutline/>,
-        cName: 'navText'
-    },
-    {
         title:'View Map',
         path: '/map',
         icon: <FaIcons.FaMapMarkerAlt/>,
+        cName: 'navText'
+    },
+    {
+        title:'Log Out',
+        path: '/logout',
+        icon: <IoIcons.IoLogOutOutline/>,
         cName: 'navText'
     },
 ];
