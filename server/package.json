@@ -2,12 +2,9 @@
   "name": "popupfoodies",
   "version": "1.0.0",
   "description": "A food truck locator application that allows users to plan their next pop up meal.",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "kill": "kill-port 3000 3001 8080",
-    "dev": "npm run kill && concurrently \"cd server && nodemon server.js\" \"cd client && npm start\"",
-    "install-all": "npm i && cd server && npm i && cd ../client && npm i"
+    "start": "node server.js"
   },
   "repository": {
     "type": "git",
@@ -20,11 +17,6 @@
     "url": ""
   },
   "homepage": "",
-  "devDependencies": {
-    "concurrently": "^6.3.0",
-    "kill-port": "^1.6.1",
-    "nodemon": "^2.0.14"
-  },
   "dependencies": {
     "apollo-server-core": "^3.4.0",
     "apollo-server-express": "^3.4.0",
