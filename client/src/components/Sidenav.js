@@ -1,45 +1,44 @@
 import React,{ useState } from 'react'
+import * as FaIcons from 'react-icons/fa';
+import * as AiIcons from 'react-icons/ai';
 import "./Sidenav.css"
+import { IconContext } from 'react-icons';
+
+import { SidenavItems } from './SidenavItems';
 
 export default function Sidenav({user, logo}) {
     const [sidebar, setSidebar] = useState(false);
     const showSidebar = () => setSidebar(!sidebar);
     return (
         <>
+        <IconContext.Provider value={{color:'#fff'}}>
         <div className="navbar">
             <a className="menuBars">
-                <button onClick={showSidebar}>hamburger bar goes here - to the left</button>
+                <FaIcons.FaBars onClick={showSidebar}/>
             </a>
             <a>{logo}</a>
-            <h1>Hi {user}!</h1>
+            <h1 className='name'>Hi {user}!</h1>
         </div>
-        <nav className={sidebar ? `${'navMenu'} ${'active'}`: 'navMenu'}>
+        <nav className={sidebar ? 'navMenu active' : 'navMenu'}>
             <ul className="navMenuItems" onClick={showSidebar}>
                 <li className="navbarToggle">
                     <a className="menuBars">
-                        <button>close navbar icon here</button>
+                        <AiIcons.AiOutlineClose/>
                     </a>
                 </li>
-                <li className="navText">
-                    <a>
-                        {/* icon element goes here */}
-                        <span>item 1</span>
-                    </a>
-                </li>
-                <li className="navText">
-                    <a>
-                        {/* icon element goes here */}
-                        <span>item 2</span>
-                    </a>
-                </li>
-                <li className="navText">
-                    <a>
-                        {/* icon element goes here */}
-                        <span>item 3</span>
-                    </a>
-                </li>
+                {SidenavItems.map((item, index) => {
+                    return (
+                    <li key={index} className={item.cName}>
+                        <a href={item.path}>
+                            {item.icon}
+                            <span>{item.title}</span>
+                        </a>
+                    </li>
+                    )
+                })}
             </ul>
         </nav>
+        </IconContext.Provider>
         </>
     )
 }
