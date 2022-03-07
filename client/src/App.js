@@ -7,7 +7,7 @@ import SignUp from './pages/SignUp';
 import Map from './pages/Map';
 import Landing from "./pages/Landing";
 import Sidenav from './components/Sidenav';
-import ProtectedRoutes from "./ProtectedRoutes";
+// import ProtectedRoutes from "./ProtectedRoutes";
 import './App.css'
 
 function App() {
