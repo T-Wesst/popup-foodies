@@ -1,24 +1,36 @@
 import React from 'react'
 import * as AiIcons from 'react-icons/ai';
-import { Link } from 'react-router-dom'
-
-
-export default function SearchBar({placeholder, locations}) {
-  return (
-    <div className="search">
-      <div className="searchInput">
-        <input type="text" placeholder={placeholder} />
-        <div className="searchIcon">
+import './SearchBar.css'
+ 
+ export default function SearchBar({placeholder, locations}) {
+   return (
+     <div className="search">
+       <div className="searchInput">
+       <input type="text" 
+        // onChange={handleChange} 
+        // value={input} 
+        placeholder={placeholder} />
+       <div className="searchIcon">
+         {[].length === 0 ? (
           <AiIcons.AiOutlineSearch/>
-        </div>
+         ): (
+           <div id="clearBtn" 
+          //  onClick={clearInput}
+           >x</div>
+         )} 
+       </div>
       </div>
-      <div className="dataResult">
-        {locations.map((location, index) => {
-          return (
-            <Link className="dataItem" target="_blank" to={`/${location.name}`} key={index}>{location.name}</Link>
-          )
-        })}
-      </div>
-    </div>
-  )
-}
+      {locations.length != 0 && (
+        <div className="dataResult">
+          {locations.slice(0,15).map((value,key) => {
+            return (
+              <a href="" className="dataItem">
+                <p>{value.title}</p>
+              </a>
+            )
+          })}</div>
+      )}
+     </div>
+   )
+ }
+ 
