@@ -1,7 +1,7 @@
 FROM node:14 AS Development
-WORKDIR /popup-foodies/server
+WORKDIR /server
 COPY package*.json ./
 RUN npm install
 COPY . .
 EXPOSE 8080
-CMD ["npm", "start"]
+CMD ["npm","run","start"]
