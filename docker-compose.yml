@@ -1,43 +1,44 @@
-version: '3'
+version: '3.7'
 
 services:
   client:
     container_name: popup-foodies_client
     image: popup-foodies-client:latest
-    working_dir: /popup-foodies/client
     restart: always
-    build: 
-      context: ./
-      dockerfile: client/Dockerfile
-    # volumes:
-    #   - client:/popup-foodies/client
+    build:
+      context: ./client
+      dockerfile: Dockerfile
+    volumes:
+      - /client/node_modules
+      - ./client:/popup-foodies
     ports:
       - "3000:3000"
-    # depends_on:
-    #   - server
-  
+  # depends_on:
+  #   - server
+
   # server:
   #   container_name: popup-foodies_server
   #   image: popup-foodies-server:latest
-  #   working_dir: /popup-foodies/server
   #   restart: always
+  #   env_file:
+  #     - .env
   #   ports:
-  #     - 8080:8080
+  #     - 8080:${port}
   #   build:
-  #     context: ./
-  #     dockerfile: server/Dockerfile
-    # volumes:
-    #   - server:/popup-foodies/server
-  
+  #     context: ./server
+  #     dockerfile: Dockerfile
+  #   volumes:
+  #     - /server/node_modules
+  #     - ./server:/popup-foodies
   # database:
   #   container_name: mongo_db
   #   image: mongo
   #   ports:
   #     - "27017:27017"
-    # volumes:
-    #   - mongo_db:/data/db
+  # volumes:
+  #   - mongo_db:/data/db
 
-# volumes:
-#   mongo_db:
-#   client:
-#   server:
+  # volumes:
+  #   mongo_db:
+  #   client:
+  #   server:

@@ -1,7 +1,7 @@
 FROM node:14 AS Development
-WORKDIR /server
+WORKDIR /client
 COPY package*.json ./
 RUN npm install
 COPY . .
-EXPOSE 8080
+EXPOSE 3000
 CMD ["npm","run","start"]

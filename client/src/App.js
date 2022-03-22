@@ -1,24 +1,31 @@
-import logo from './logo.svg';
-import './App.css';
+import { Routes, Route } from "react-router-dom";
+import Home from './pages/Home';
+import Cart from './pages/Cart';
+import Profile from './pages/Profile';
+import SignIn from './pages/SignIn';
+import SignUp from './pages/SignUp';
+import Map from './pages/Map';
+import Landing from "./pages/Landing";
+import Sidenav from './components/Sidenav';
+// import ProtectedRoutes from "./ProtectedRoutes";
+import './App.css'
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+    <Sidenav user="Tyroo" logo="Popup Foodies"/>
+    <Routes>
+      <Route path="/" element={<Landing />} />
+      <Route path="/signin" element={<SignIn />} />
+      <Route path="/signup" element={<SignUp />} />
+      {/* <Route element={<ProtectedRoutes/>}> */}
+        <Route path="/home" element={<Home />} />
+        <Route path="/profile" element={<Profile />} />
+        <Route path="/cart" element={<Cart />} />
+        <Route path="/map" element={<Map />} />
+      {/* </Route> */}
+    </Routes>
+    </>
   );
 }
 
