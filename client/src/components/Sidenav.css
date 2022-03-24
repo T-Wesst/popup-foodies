@@ -17,6 +17,8 @@
 
 .name {
     color: #fff;
+    display: flex;
+    align-items: center;
 }
 
 .navMenu {
