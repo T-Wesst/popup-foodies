@@ -17,8 +17,8 @@ export default function Sidenav({user, logo}) {
             <Link to='#' className="menuBars">
                 <FaIcons.FaBars onClick={showSidebar}/>
             </Link>
-            <Link to="/home">{logo}</Link>
-            <h1 className='name'>Hi {user}!</h1>
+            <h1><Link to="/home">{logo}</Link></h1>
+            <h1 className='name'><FaIcons.FaUserCircle/> <span>{user}</span></h1>
         </div>
         <nav className={sidebar ? 'navMenu active' : 'navMenu'}>
             <ul className="navMenuItems" onClick={showSidebar}>
