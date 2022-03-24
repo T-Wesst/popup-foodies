@@ -20,16 +20,15 @@ import './SearchBar.css'
          )} 
        </div>
       </div>
-      {locations.length != 0 && (
         <div className="dataResult">
-          {locations.slice(0,15).map((value,key) => {
+          {locations.map((location,index) => {
+            const {name} = location;
             return (
-              <a href="" className="dataItem">
-                <p>{value.title}</p>
+              <a key={index} href="https://google.com" className="dataItem">
+                <p>{location.name}</p>
               </a>
             )
           })}</div>
-      )}
      </div>
    )
  }
